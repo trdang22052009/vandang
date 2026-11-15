@@ -1,0 +1,16 @@
+BẢN KHÔNG DÙNG DATABASE – RENDER FREE
+
+1. Đưa toàn bộ thư mục dự án lên GitHub.
+2. Trên Render, cập nhật Web Service hiện tại, đúng repository/branch.
+3. Build Command: npm install; Start Command: npm start.
+4. Environment cần có:
+   - NODE_ENV = production
+   - ADMIN_PASSWORD = mật khẩu riêng, khó đoán
+   - SESSION_SECRET = chuỗi ngẫu nhiên dài (nếu Render chưa tự tạo)
+   - DATA_FILE = /opt/render/project/src/data/votes.json
+5. Xóa DATABASE_URL cũ nếu còn. Không cần tạo PostgreSQL.
+6. Deploy lại và kiểm tra /health có storage là local-json.
+
+CẢNH BÁO: File JSON nằm trên filesystem tạm của Render Free. Dữ liệu có thể mất
+khi restart, redeploy hoặc instance bị thay thế. Hãy lưu kết quả ngay sau buổi bình chọn.
+Nếu có PostgreSQL cũ, chỉ xóa trên Dashboard khi chắc chắn không còn dữ liệu cần giữ.

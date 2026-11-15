@@ -1,0 +1,18 @@
+HƯỚNG DẪN NHANH – KHÔNG DÙNG POSTGRESQL
+
+1) Đưa mã nguồn lên đúng GitHub repository/branch mà Render đang dùng.
+2) Render Web Service → Settings:
+   Build Command: npm install
+   Start Command: npm start
+3) Environment:
+   NODE_ENV = production
+   ADMIN_PASSWORD = mật khẩu quản trị riêng, khó đoán
+   DATA_FILE = /opt/render/project/src/data/votes.json
+   SESSION_SECRET = chuỗi ngẫu nhiên dài (nếu chưa được tự tạo)
+   Xóa DATABASE_URL nếu còn.
+4) Save Changes và Deploy latest commit.
+5) Kiểm tra /health; kết quả mong đợi: {"ok":true,"storage":"local-json"}.
+
+LƯU Ý: Đây là file JSON trên filesystem tạm của Render Free. Phiếu có thể mất khi
+restart, redeploy hoặc instance bị thay thế. Hãy lưu kết quả sau khi bình chọn xong.
+Không cần tạo PostgreSQL. Chỉ xóa database cũ nếu chắc chắn không còn dữ liệu cần giữ.
